@@ -1,2 +1,2 @@
-# shared-actions
-A place to store any reusable github actions.
+# shared-workflows
+A place to store any reusable github workflows.

@@ -1,0 +1,20 @@
+name: Send Slack Notification With PR Info
+
+on:
+  workflow_call:
+    inputs:
+      event:
+        required: true
+        type: Dictionary
+        
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          payload: "{\"title\":\"${{inputs.event.pull_request.title}}\",\"body\":\"${{inputs.event.inputs.body}}\",\"url\":\"${{inputs.event.pull_request.html_url}}\",\"user\":\"${{inputs.event.pull_request.user.login}}\"}"
+        env:
+          SLACK_WEBHOOK_URL: #TBD

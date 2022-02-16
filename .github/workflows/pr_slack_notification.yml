@@ -17,4 +17,4 @@ jobs:
         with:
           payload: "{\"title\":\"${{inputs.event.pull_request.title}}\",\"body\":\"${{inputs.event.inputs.body}}\",\"url\":\"${{inputs.event.pull_request.html_url}}\",\"user\":\"${{inputs.event.pull_request.user.login}}\"}"
         env:
-          SLACK_WEBHOOK_URL: #TBD
+          SLACK_WEBHOOK_URL: ${{ secrets.PR_SLACK_URL }}

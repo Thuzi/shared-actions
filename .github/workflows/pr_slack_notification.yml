@@ -2,6 +2,10 @@ name: Send Slack Notification With PR Info
 
 on:
   workflow_call:
+    inputs:
+      user:
+        required: false
+        type: string
 
 jobs:
   notify:
